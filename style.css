@@ -32,3 +32,22 @@ input {
 a{
     margin: auto;
 }
+.clickButtonForm{
+    margin-top: 10px;
+}
+.error, .success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px 5px;
+    border-bottom-right-radius: 10px;
+    display: none;
+}
+.error{
+    background-color: coral;
+    border: 1px solid red;
+}
+.success{
+    background-color: cornflowerblue;
+    border: 1px solid blue;
+}
