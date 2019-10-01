@@ -29,3 +29,6 @@ input {
     border: solid darkblue 2px;
     border-radius: 5px;
 }
+a{
+    margin: auto;
+}

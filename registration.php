@@ -29,6 +29,7 @@ if(isset($_POST['login'])&&isset($_POST['password'])&&isset($_POST['confirm_pass
             $new_user->addChild('password_hash','$$password_hash');
             $new_user->addChild('email','$email');
             $new_user->addChild('name','$name');
+            $xml->asXml('db.xml');
             echo "привет ".$name;
         }
 
