@@ -1,0 +1,31 @@
+body{
+    padding: auto;
+    background-color: #eee;
+}
+.main{
+    background-color: white;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin: auto;
+    margin-top: 200px;
+    padding: 50px;
+    border-radius: 5px;
+}
+.main h1{
+    margin: auto;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+}
+input {
+    margin-top: 10px;
+    padding-left: 10px;
+    height: 30px;
+    border: solid darkblue 2px;
+    border-radius: 5px;
+}
