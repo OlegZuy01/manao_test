@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'db.php';
 if(isset($_POST['login'])&&isset($_POST['password'])&&isset($_POST['confirm_password'])&&isset($_POST['email'])&&isset($_POST['name'])){
     $login=$_POST['login'];
     $password=$_POST['password'];
@@ -11,7 +10,7 @@ if(isset($_POST['login'])&&isset($_POST['password'])&&isset($_POST['confirm_pass
         echo "Пароли не совпадают .";
     }
     else{
-        $xml= new SimpleXMLElement($xmlstr);
+        $xml= simplexml_load_file('db.xml');
         $i=0;
         foreach($xml->user as $user){
             if($user->email==$email){
@@ -30,7 +29,7 @@ if(isset($_POST['login'])&&isset($_POST['password'])&&isset($_POST['confirm_pass
             $new_user->addChild('password_hash','$$password_hash');
             $new_user->addChild('email','$email');
             $new_user->addChild('name','$name');
-
+            echo "привет ".$name;
         }
 
     }
