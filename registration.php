@@ -23,7 +23,11 @@ else{
     foreach($xml->user as $user){
         if($user->email==$email){
             $i++;
-            echo "email_busy";
+            $response = array(
+                'success' => false,
+                'error' => 'email_busy'
+            );
+            echo json_encode($response);
         }
         if($user->login==$login){
             echo "login_busy";

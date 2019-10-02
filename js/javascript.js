@@ -1,7 +1,6 @@
 $(document).ready(
     function() {
-    var clickButtonForm=$(".clickButtonForm");
-        clickButtonForm.submit(function(){ //функция , которая работает после срабатывания кнопка
+        $("#form").submit(function(event){ //функция , которая работает после срабатывания кнопка
             event.preventDefault();
             var inputLoginValue = $("#login");
             var inputPasswordValue = $("#password");
@@ -15,7 +14,7 @@ $(document).ready(
                 $.ajax({
                     url: "registration.php",
                     type: "POST",
-                    data: {login: inputLoginValue.val(),password: inputPasswordValue.val(),confirmPassword: inputConfirmPasswordValue.val(),email: inputEmailValue.val(),name: inputNameValue.val()}
+                    data: {login: inputLoginValue.val(),password: inputPasswordValue.val(),confirmPassword: inputConfirmPasswordValue.val(),email: inputEmailValue.val(),name: inputNameValue.val()},
 
                     success: function(data) {
                         if(data == 0) {
