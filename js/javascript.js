@@ -1,6 +1,8 @@
-$(document).ready(function(){
+$(document).ready(
+    function() {
     var clickButtonForm=$(".clickButtonForm");
-        clickButtonForm.click(function(){ //функция , которая работает после срабатывания кнопка
+        clickButtonForm.submit(function(){ //функция , которая работает после срабатывания кнопка
+            event.preventDefault();
             var inputLoginValue = $("#login");
             var inputPasswordValue = $("#password");
             var inputConfirmPasswordValue = $("#confirmPassword"); //помещаем в переменные
