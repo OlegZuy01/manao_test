@@ -15,7 +15,11 @@ if(isset($_POST['name'])) {
     $name = $_POST['name'];
 }
 if($password!=$confirm_password){
-    echo "passwords_do_not_match";
+    $response = array(
+        'success' => false,
+        'error' => 'passwords_do_not_match'
+    );
+echo json_encode($response);
 }
 else{
     $xml= simplexml_load_file('db.xml');
@@ -30,11 +34,20 @@ else{
             echo json_encode($response);
         }
         if($user->login==$login){
-            echo "login_busy";
+            $response = array(
+                'success' => false,
+                'error' => 'login_busy'
+            );
+            echo json_encode($response);
             $i++;
         }
     }
     if($i==0){
+        $response = array(
+            'success' => true,
+            'error' => 'no access'
+        );
+        echo json_encode($response);
         $password_hash = password_hash($password,PASSWORD_DEFAULT);
         $new_user=$xml->addChild('user');
         $new_user->addChild('login',$login);
@@ -42,7 +55,7 @@ else{
         $new_user->addChild('email',$email);
         $new_user->addChild('name',$name);
         $xml->asXml('db.xml');
-        echo 0;
+
     }
 }
 
